@@ -4,7 +4,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 
 public class PojoTest {
-    ConcurrentHashMap <String,String> message;
+    final private ConcurrentHashMap <String,String> message;
     PojoTest(){
         this.message = new ConcurrentHashMap<String,String>();
     }

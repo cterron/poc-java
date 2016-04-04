@@ -13,12 +13,12 @@ public class PojoSerializer  implements JsonSerializer<PojoTest> {
         JsonElement pojoOrig = gson.toJsonTree(pojo);
         /* Now, modify the tree */
         JsonObject obj = pojoOrig.getAsJsonObject();
-        /* Check the serialize keys againts DefaultKey and check is properties */
+        /* Check the serialize keys against DefaultKey and check is properties */
         JsonObject message = obj.getAsJsonObject("message");
 
         Set<Map.Entry<String,JsonElement>>  entries = message.entrySet();
 
-        /* I hope that this not becaome O(scary). In these case, I need
+        /* I hope that this not became O(scary). In these case, I need
         a map implementation */
         /* Get the message if exists */
 
@@ -26,7 +26,6 @@ public class PojoSerializer  implements JsonSerializer<PojoTest> {
         {
             String key = entry.getKey();
             /* Check the key */
-            JsonElement innerObj = entry.getValue();
             DefaultKey enumKey = DefaultKey.contains(key);
             if (enumKey != null && enumKey.isList()) {
                 String value = entry.getValue().getAsString();
